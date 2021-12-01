@@ -2,15 +2,66 @@
 <html>
   <head>
     <title>Here is the frontend stuff</title>
-    <meta http-equiv="refresh" content="3">
+	  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<!--     <meta http-equiv="refresh" content="1"> -->
     <link rel="stylesheet" href="amplify-frontend.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
   <header >
-    <h1> Epic Amplify HTML Frontend: </h1>
-    <h2 >- current, updating rekognition frame is below: -</h2>
+    <h1> Social Distancing Violation Detection </h1>
+	  <h2 >- current, updating rekognition frame is below: -</h2> 
   </header>
   <br />
   <body>
-	  <img src="https://cdn.pixabay.com/photo/2021/11/13/21/07/mountains-6792383_960_720.jpg" alt="most-recent-image" class="centerImage" />
-  </body>
+	<div id="imgDiv">
+	  <img id="img" src="https://video-input-bucket2.s3.amazonaws.com/output.jpeg" class="centerImage" />
+	  </div>  
+	  <br>
+	  <p id="hi"></p>
+	  <p id="hi2"></p>
+</body>
+	
+<script type="text/javascript">  
+
+//     function replaceSrc()
+//     {
+
+//         var images = document.getElementsById('img');
+
+//         for(var i = 0; ; i++)
+//         {
+// //             var dt = new Date();
+// //             var img = images[i];
+
+// //             if(img.src.length >= 0 & img.id != 'idImageNoTimestamp')
+// //             {
+// //                 img.src = img.src + "?" + dt.getTime();
+//                 //javascript:alert(document.lastModified);
+// //             }
+// 		img.src="https://video-input-bucket2.s3.amazonaws.com/output.jpeg";
+//         }
+//     }
+//     replaceSrc();
+	$(function() {
+		console.log("here");
+	   var intervalMS = 800; // 5 seconds
+	   setInterval(function() {
+		   console.log("inside");
+// 		   $("#imgDiv").load(location.href + " #img");
+// 		   document.getElementById("img").src = document.getElementById("img").src + "?" + (new Date()).getTime();
+		  
+	      $("#img").remove();
+		   var image = document.createElement("IMG");
+		image.setAttribute('class', 'centerImage');
+		image.setAttribute('id', 'img');
+		image.src="https://video-input-bucket2.s3.amazonaws.com/output.jpeg"+ "?" + (new Date()).getTime();
+		 $("#imgDiv").html(image);  
+		   
+// 		   $("#hi").append("Some appended text.");
+// 		   document.getElementById("hi2").innerHTML = document.getElementById("hi2").innerHTML + "lavdya";
+	   }, intervalMS);
+	});
+      </script>
 </html>
